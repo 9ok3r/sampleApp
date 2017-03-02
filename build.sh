@@ -48,6 +48,7 @@ dockerhub_login() {
 build_tag_push_image() {
   echo "Starting Docker build for" $HUB_ORG/$IMAGE_NAME:$RES_IMAGE_VER_NAME
   cd ./IN/$RES_REPO/gitRepo
+  sed -i -- 's/\[VERSION\]/'$APPIMG_VERSIONNUMBER'/g' views/index.ejs
   sudo docker build -t=$HUB_ORG/$IMAGE_NAME:$IMAGE_TAG .
   sudo docker push $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG
   echo "Completed Docker build for" $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG
