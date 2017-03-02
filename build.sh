@@ -2,8 +2,8 @@
 
 export CURR_JOB="buildApp"
 export HUB_ORG="chetantarale"
-export IMAGE_NAME="sampleapp"
-export IMAGE_TAG=master.5
+export IMAGE_NAME="sampleapp-repo"
+export IMAGE_TAG=latest
 
 export RES_REPO="sampleApp_repo"
 export RES_IMAGE="app_img"
@@ -15,7 +15,7 @@ export RES_IMAGE_VER_NAME=$(eval echo "$"$RES_REPO_UP"_VERSIONNAME")
 
 set_context() {
   echo "CURR_JOB=$CURR_JOB"
-  echo "HUB_ORG=$DOCKERHUB_ORG"
+  echo "HUB_ORG=$HUB_ORG"
   echo "IMAGE_NAME=$IMAGE_NAME"
   echo "IMAGE_TAG=$IMAGE_TAG"
   echo "RES_REPO=$RES_REPO"
