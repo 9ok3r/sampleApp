@@ -4,4 +4,4 @@ WORKDIR /app
 ADD . /app
 RUN npm install
 EXPOSE 51000
-ENTRYPOINT ["app/boot.sh"]
+ENTRYPOINT ["/app/boot.sh"]
