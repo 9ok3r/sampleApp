@@ -22,6 +22,9 @@ set_context() {
   echo "RES_REPO=$RES_REPO"
   echo "RES_IMAGE=$RES_IMAGE"
   echo "RES_IMAGE_VER_NAME=$RES_IMAGE_VER_NAME"
+  echo "RES_REPO_UP"="$RES_REPO_UP"
+  echo "RES_REPO_COMMIT"="$RES_REPO_COMMIT"
+  echo "RES_IMAGE_VER_NAME"="$RES_IMAGE_VER_NAME"
 }
 dockerhub_login() {
   echo "Logging in to Dockerhub"
