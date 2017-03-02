@@ -12,6 +12,7 @@ export RES_MICROBASE_IMAGE="microbase_img"
 export RES_REPO_UP=$(echo $RES_REPO | awk '{print toupper($0)}')
 export RES_REPO_COMMIT=$(eval echo "$"$RES_REPO_UP"_COMMIT")
 export RES_IMAGE_VER_NAME=$(eval echo "$"$RES_REPO_UP"_VERSIONNAME")
+export RES_DOCKERHUB_INTEGRATION=dockerhub
 
 set_context() {
   echo "CURR_JOB=$CURR_JOB"
@@ -21,6 +22,23 @@ set_context() {
   echo "RES_REPO=$RES_REPO"
   echo "RES_IMAGE=$RES_IMAGE"
   echo "RES_IMAGE_VER_NAME=$RES_IMAGE_VER_NAME"
+}
+dockerhub_login() {
+  echo "Logging in to Dockerhub"
+  echo "----------------------------------------------"
+
+  local creds_path="IN/$RES_DOCKERHUB_INTEGRATION/integration.json"
+
+  find -L "IN/$RES_DOCKERHUB_INTEGRATION"
+  local username=$(cat $creds_path \
+    | jq -r '.username')
+  local password=$(cat $creds_path \
+    | jq -r '.password')
+  local email=$(cat $creds_path \
+    | jq -r '.email')
+  echo "######### LOGIN: $username"
+  echo "######### EMAIL: $email"
+  sudo docker login -u $username -p $password -e $email
 }
 
 build_tag_push_image() {
