@@ -6,7 +6,7 @@ export IMAGE_NAME="sampleapp"
 export IMAGE_TAG=latest
 
 export RES_REPO="sampleapp-repo"
-export RES_IMAGE="app_img"
+export RES_IMAGE="app-img"
 export RES_MICROBASE_IMAGE="microbase_img"
 
 export RES_REPO_UP=$(echo $RES_REPO | awk '{print toupper($0)}')
