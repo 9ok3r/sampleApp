@@ -26,6 +26,7 @@ set_context() {
   echo "RES_REPO_COMMIT"="$RES_REPO_COMMIT"
   echo "RES_IMAGE_VER_NAME"="$RES_IMAGE_VER_NAME"
 }
+
 dockerhub_login() {
   echo "Logging in to Dockerhub"
   echo "----------------------------------------------"
@@ -61,6 +62,7 @@ create_image_version() {
 
 main() {
   set_context
+  dockerhub_login
   build_tag_push_image
   create_image_version
 }
