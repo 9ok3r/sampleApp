@@ -26,9 +26,9 @@ set_context() {
 build_tag_push_image() {
   echo "Starting Docker build for" $HUB_ORG/$IMAGE_NAME:$RES_IMAGE_VER_NAME
   cd ./IN/$RES_REPO/gitRepo
-  sudo docker build -t=$HUB_ORG/$IMAGE_NAME:$RES_IMAGE_VER_NAME .
-  sudo docker push $HUB_ORG/$IMAGE_NAME:$RES_IMAGE_VER_NAME
-  echo "Completed Docker build for" $HUB_ORG/$IMAGE_NAME:$RES_IMAGE_VER_NAME
+  sudo docker build -t=$HUB_ORG/$IMAGE_NAME:$IMAGE_TAG .
+  sudo docker push $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG
+  echo "Completed Docker build for" $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG
 }
 
 create_image_version() {
