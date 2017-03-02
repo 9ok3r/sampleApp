@@ -55,7 +55,7 @@ build_tag_push_image() {
 create_image_version() {
   echo "Creating a state file for" $RES_IMAGE
   echo versionName=$IMAGE_TAG > /build/state/$RES_IMAGE.env
-  echo IMG_REPO_COMMIT_SHA=$RES_REPO_COMMIT >> /build/state/$RES_IMAGE.env
+  echo APPIMG_VERSIONNUMBER=$APPIMG_VERSIONNUMBER >> /build/state/$RES_IMAGE.env
   echo "Completed creating a state file for" $RES_IMAGE
 }
 
