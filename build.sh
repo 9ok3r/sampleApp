@@ -2,7 +2,7 @@
 
 export CURR_JOB="buildApp"
 export HUB_ORG="chetantarale"
-export IMAGE_NAME="sampleapp-repo"
+export IMAGE_NAME="sampleapp"
 export IMAGE_TAG=latest
 
 export RES_REPO="sampleapp-repo"
