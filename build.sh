@@ -5,7 +5,7 @@ export HUB_ORG="chetantarale"
 export IMAGE_NAME="sampleapp"
 export IMAGE_TAG=latest
 
-export RES_REPO="sampleapp"
+export RES_REPO="sampleapp-repo"
 export RES_IMAGE="app-img"
 export RES_MICROBASE_IMAGE="microbase_img"
 
