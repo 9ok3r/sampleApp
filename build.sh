@@ -56,7 +56,7 @@ build_tag_push_image() {
 
 create_image_version() {
   echo "Creating a state file for" $RES_IMAGE
-  echo versionName=$IMAGE_TAG > /build/state/$RES_IMAGE.env
+  echo versionName=$((APPIMG_VERSIONNUMBER+1)) > /build/state/$RES_IMAGE.env
   echo APPIMG_VERSIONNUMBER=$((APPIMG_VERSIONNUMBER+1)) >> /build/state/$RES_IMAGE.env
   echo "Completed creating a state file for" $RES_IMAGE
 }
