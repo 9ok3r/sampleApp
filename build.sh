@@ -49,14 +49,14 @@ build_tag_push_image() {
   ls
   sed -i -- 's/\[VERSION\]/'$((APPIMG_VERSIONNUMBER+1))'/g' views/index.ejs
   cat views/index.ejs
-  sudo docker build -t=$HUB_ORG/$IMAGE_NAME:$IMAGE_TAG .
-  sudo docker push $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG
-  echo "Completed Docker build for" $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG
+  sudo docker build -t=$HUB_ORG/$IMAGE_NAME:$IMAGE_TAG.$((APPIMG_VERSIONNUMBER+1)) .
+  sudo docker push $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG.$((APPIMG_VERSIONNUMBER+1))
+  echo "Completed Docker build for" $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG.$((APPIMG_VERSIONNUMBER+1))
 }
 
 create_image_version() {
   echo "Creating a state file for" $RES_IMAGE
-  echo versionName=$((APPIMG_VERSIONNUMBER+1)) > /build/state/$RES_IMAGE.env
+  echo versionName=$IMAGE_TAG.$((APPIMG_VERSIONNUMBER+1)) > /build/state/$RES_IMAGE.env
   echo APPIMG_VERSIONNUMBER=$((APPIMG_VERSIONNUMBER+1)) >> /build/state/$RES_IMAGE.env
   echo "Completed creating a state file for" $RES_IMAGE
 }
