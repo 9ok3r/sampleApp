@@ -47,7 +47,7 @@ build_tag_push_image() {
   echo "Starting Docker build for" $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG
   cd ./IN/$RES_REPO/gitRepo
   ls
-  sed -i -- 's/\[VERSION\]/'$APPIMG_VERSIONNUMBER'/g' views/index.ejs
+  sed -i -- 's/\[VERSION\]/'$((APPIMG_VERSIONNUMBER+1))'/g' views/index.ejs
   cat views/index.ejs
   sudo docker build -t=$HUB_ORG/$IMAGE_NAME:$IMAGE_TAG .
   sudo docker push $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG
