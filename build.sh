@@ -11,7 +11,6 @@ export RES_MICROBASE_IMAGE="microbase_img"
 
 export RES_REPO_UP=$(echo $RES_REPO | awk '{print toupper($0)}')
 export RES_REPO_COMMIT=$(eval echo "$"$RES_REPO_UP"_COMMIT")
-export RES_IMAGE_VER_NAME=$(eval echo "$"$RES_REPO_UP"_VERSIONNAME")
 export RES_DOCKERHUB_INTEGRATION=dockerhub
 
 set_context() {
@@ -24,7 +23,6 @@ set_context() {
   echo "RES_IMAGE_VER_NAME=$RES_IMAGE_VER_NAME"
   echo "RES_REPO_UP"="$RES_REPO_UP"
   echo "RES_REPO_COMMIT"="$RES_REPO_COMMIT"
-  echo "RES_IMAGE_VER_NAME"="$RES_IMAGE_VER_NAME"
 }
 
 dockerhub_login() {
@@ -46,7 +44,7 @@ dockerhub_login() {
 }
 
 build_tag_push_image() {
-  echo "Starting Docker build for" $HUB_ORG/$IMAGE_NAME:$RES_IMAGE_VER_NAME
+  echo "Starting Docker build for" $HUB_ORG/$IMAGE_NAME:$IMAGE_TAG
   cd ./IN/$RES_REPO/gitRepo
   ls
   sed -i -- 's/\[VERSION\]/'$APPIMG_VERSIONNUMBER'/g' views/index.ejs
